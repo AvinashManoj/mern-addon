@@ -36,6 +36,9 @@ app.delete("/delete", (req, res) => {
     res.send("This is the delete page");
 })
 
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, "error404.html"));
+});
 
 app.listen(3000, () => {
     console.log("Server is running on http://localhost:3000");
